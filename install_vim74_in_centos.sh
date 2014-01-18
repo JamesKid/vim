@@ -31,4 +31,8 @@
 	make install
 # test	
 	vim --version	# if you can see the information meas you install it success
+# path of the vimrc 
+	/usr/local/share/vim/vimrc
+# install ctags
+	yum install ctags
 
