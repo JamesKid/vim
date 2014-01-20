@@ -35,4 +35,5 @@
 	/usr/local/share/vim/vimrc
 # install ctags
 	yum install ctags
+# put plugin into it 
 
