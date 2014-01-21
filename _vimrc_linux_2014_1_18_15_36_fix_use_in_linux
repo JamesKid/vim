@@ -48,6 +48,7 @@ endfunction
 			   " 2014_01_17_12_17 add font setting 
 			   " 2014_01_17_15_45 add txtBroser plugin use tips
 			   " 2014_01_17_15_45 add easy motion plugin use tips
+			   " 2014_01_17_15_45 map "leader" \ to ","
 " setting
 
 		" noremal setting
@@ -191,6 +192,9 @@ endfunction
 			map ;a <CTRL-w>
 			map vy :g/^\s*$/d<cr>
 			map ;k :%s/^\s\+//g <cr>
+			" leader
+			let mapleader=","
+			let g:mapleader=","
 			" add F6 to print time  add 2013.12.5
             nnoremap <F6> "=strftime("%F")<CR>gP
             inoremap <F6> <C-R>=strftime("%F")<CR>
