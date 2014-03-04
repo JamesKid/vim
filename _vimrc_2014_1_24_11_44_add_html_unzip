@@ -49,6 +49,7 @@ endfunction
 			   " 2014_01_17_15_45 add txtBroser plugin use tips
 			   " 2014_01_17_15_45 add easy motion plugin use tips
 			   " 2014_01_17_15_45 map "leader" \ to ","
+			   " 2014_01_24_15_45 add "html" one line to multy line's  regular expression use ";c"
 " setting
 
 		" noremal setting
@@ -192,6 +193,7 @@ endfunction
 			map ;a <CTRL-w>
 			map vy :g/^\s*$/d<cr>
 			map ;k :%s/^\s\+//g <cr>
+			map ;c :%s/\(<.\{-}>\)/\r\1\r/g <cr>
 			" leader
 			let mapleader=","
 			let g:mapleader=","
