@@ -32,8 +32,11 @@ highlight Type						gui=NONE
 " @time			: 2014_3_4_14_49
 " @description  : let the vim background to dark in linux with torte 
 " @fix			: comment the ctermfg=LightGrey ctermbg=Black
+" @add			: add PreProc color
 " ======================================================================
 "
+
+highlight PreProc	ctermfg=5
 "highlight Normal     ctermfg=LightGrey	ctermbg=Black
 highlight Search     ctermfg=Black	ctermbg=Red	cterm=NONE
 highlight Visual					cterm=reverse
