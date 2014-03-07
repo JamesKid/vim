@@ -393,7 +393,7 @@ endfunction
 						ab etime $endTime=microtime(true);<cr>$useTime=$endTime-$beginTime;<cr>echo $useTime;
 					" memory test
 						ab bmemory $beginMemory = memory_get_usage();
-						ab ememory $endMemory = memory_get_usage();<cr>$useMemory = $endMemory - $beginMemory;<cr>echo $useMemory;
+						ab ememory echo "<br />";<cr>$endMemory = memory_get_usage();<cr>$useMemory = $endMemory - $beginMemory;<cr>echo $useMemory;
 		
 " other
 		" weiBo  
