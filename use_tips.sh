@@ -25,3 +25,9 @@
 	ls -l
 
 
+
+# useful web 
+	http://www.troyliu.com/20131114001.html # java ide2 making 
+	
+
+
