@@ -24,6 +24,8 @@
 	:shell			# go to shell command line 
 	ls -l
 
+# edit network file
+	:Nread scp://jameskid@192.168.72.129:33334//tmp/zsj.txt	 # edit the zsj.txt
 
 
 # useful web 
