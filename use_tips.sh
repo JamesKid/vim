@@ -11,6 +11,9 @@
 # coding
 	:set fenc=utf8  #1.transfer the file to utf-8
 
+	:set fileencoding		# check the files encoding
+	:set fileencoding=utf-8 # set the files encoding to utf-8
+
 # regular expression
 	:%s/href="[^"]\+=[^{css}]"/href="#"/g    # replace the href except xxxx.css"
 # use linux or cmd command
