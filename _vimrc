@@ -70,6 +70,7 @@ endfunction
 			set fileencoding=utf-8
 			set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1,gbk
 			set fenc=utf-8
+			" set helplang=cn    " let the help language to chinese
 			"colorscheme desert
 			colorscheme torte
 			"set ignorecase 
