@@ -14,3 +14,9 @@
 
 		you need to delete the 'mswin.vim' file in the $VIM directory 
 		and comment the 
+# plugin prolbem
+	# nerdtree 
+		# 1.在终端有时会目录树出现‘铝’乱码
+			vim <~vim-path>/plugin/Nerdtree.vim
+				call s:initVariable("g:NERDTreeDirArrows", !s:running_windows)
+				# 把那个"!"去掉
