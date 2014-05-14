@@ -6,6 +6,9 @@
 #==================================================================
 # install vimin centos
 	yum install vim
+	#or
+	yum -y install vim-enhanced
+
 # remove some part
 	su - root
 	yum remove vim vim-enhanced vim-common vim-minimal 
