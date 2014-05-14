@@ -32,6 +32,10 @@
 	./configure --enable-multibyte --with-features=huge --disable-selinux
 	make 
 	make install
+	# if you use centos 6.4 this is the end 
+	# if you use centos 5.9 you need to alias vim 74 like this 
+		alias vim='/usr/local/bin/vim'
+
 # test	
 	vim --version	# if you can see the information meas you install it success
 # path of the vimrc 
