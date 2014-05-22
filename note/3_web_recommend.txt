@@ -1,10 +1,12 @@
 # game
 	# a game to learn vim control
-	http://vim-adventures.com/    
+		http://vim-adventures.com/    
 
 # learn 
 	# a web about vim config
-	http://www.cnblogs.com/witcxc/archive/2011/12/28/2304704.html
+		http://www.cnblogs.com/witcxc/archive/2011/12/28/2304704.html
+	# learn vimscript the hard way ( a good website to learn vimscript)
+		http://learnvimscriptthehardway.stevelosh.com/
 
 # help
 	# chinese help address
