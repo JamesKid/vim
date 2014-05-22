@@ -20,3 +20,5 @@
 			vim <~vim-path>/plugin/Nerdtree.vim
 				call s:initVariable("g:NERDTreeDirArrows", !s:running_windows)
 				# 把那个"!"去掉
+	# the vim editor can not show chinese 
+		slove: this is because the plugin buf_if.vim will conflict with the editor.
