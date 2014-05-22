@@ -17,17 +17,17 @@
 "	parentheses by this way (read file vim73/rgb.txt for all named colors) .
 "		e.g. this is an advanced config (add these sentences to your vimrc):
 "
-	 		let g:rainbow_active = 1
-			let g:rainbow_operators = 2
+	 		"let g:rainbow_active = 1
+			"let g:rainbow_operators = 2
   	 
-  	 		let g:rainbow_load_separately = [
-			\	[ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-			\	[ '*.tex' , [['(', ')'], ['\[', '\]']] ],
-			\	[ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-			\	[ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*[^/]>\|<\a>', '</[^>]*>']] ],
-			\	]
+  	 		"let g:rainbow_load_separately = [
+			"\	[ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+			"\	[ '*.tex' , [['(', ')'], ['\[', '\]']] ],
+			"\	[ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+			"\	[ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*[^/]>\|<\a>', '</[^>]*>']] ],
+			"\	]
   	 
-  	 		let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick',]
+  	 		"let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick',]
 
 "User Command:
 "	:RainbowToggle		--you can use it to toggle this plugin.

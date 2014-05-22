@@ -1,0 +1,1 @@
+sy match Error /^Error/
