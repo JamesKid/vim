@@ -1,0 +1,11 @@
+# game
+	# a game to learn vim control
+	http://vim-adventures.com/    
+
+# learn 
+	# a web about vim config
+	http://www.cnblogs.com/witcxc/archive/2011/12/28/2304704.html
+
+# help
+	# chinese help address
+	http://man.chinaunix.net/newsoft/vi/doc/help.html
