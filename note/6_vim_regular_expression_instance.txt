@@ -1,0 +1,61 @@
+"method
+
+	\+				"before it's char ,can searh once or more
+	\=				"before it's char ,can searh once or none
+	\{n,m}			"it can search it from n to m times
+
+		\{,4}		"it means 0,1,2,3,4,times 
+		\{3,0}		"it means 3,4,,5,6.... and so one times
+		\{0,1}		"it means 0,1 times same as \=
+		\{0,}		"it means 0 or more same as *
+		\{1,}		"it means 1 or more same as \+
+		\{3}		"it means just 3 times
+
+	\|				"it means or 
+
+
+
+
+
+
+"instance
+
+	1.	:%s/zsj/zhangshijie/g	" replace 'zsj' to 'zhangshijie' in the hole file
+
+	2.	:%s/\<four\>/4/gc		" replace four only when it's a word	
+
+	3.  :%s/\s\+$//				" delete the excess space after line 
+
+	4.	/a*						" search 'a','aa','aaa' and so on 
+
+	5.	/ab*					" search 'a','ab','abb',abbb'	and so on 
+						
+	6.	/\(ab/)*				" search 'ab','abab','ababab' and so on 	
+
+	7.	/ab\+					" search 'ab','abb','abbb' and so on 
+
+	8.	/folders\=				" search 'folder','folders' 
+
+	9.	/ab\{3,5}				" search 'abbb','abbbb','abbbbb'
+
+	10.	/foo\|bar				" search 'cfoo','cbar'
+
+	11.	/one\|two\|three		" search one or two or three
+
+	12.	/\(foo\|bar\)\+			" search 'foo','foobar','foofoo','barfoobar'
+
+	13.	/end\(if\|while\|for\)	" search 'endif','endwhile','endfor'
+
+	14.	:1,10s/\./;/g			" replace from 1 to 10 line the ',' to ';'
+
+	15.	:%s/[Hh]elp/\U&/g		" replace 'help' or 'Help' to "HELP"
+
+	16.	:%s/  */ /g				" replace one or more space to only one space
+
+	17. %s/^[1-9][0-9]*\.[1-9][0-9.]* // 
+								" replace "2.1 Introduction
+								           10.3.8 New Functions" to 
+										   "Introduction 
+										   New functions"
+	18. :g/moving$/				" search line with moving as end 
+										   
