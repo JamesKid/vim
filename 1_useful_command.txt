@@ -1,0 +1,72 @@
+1.  d$           删除到行尾
+
+2.  G            跳到最后一行行首
+
+3.  7yy          复制7行
+
+4.  shift+z+z    保存并退出
+
+5. 注释 
+	(1):2,8 s#^#//#g	2-8行加  "//"注释 
+	(2):2,8 s#^//##g	2-8行取消 "//"注释 
+	(3):2,8 s/^/#/g		2-8行添加"#"号注释 
+	(4):2,8 s/^#//g		2-8行取消 "#"注释
+
+6.  4y		复制4个字
+
+7.  shift+d	删除到行尾	!!!
+
+8.  :行号		跳到相应的行
+
+9.  9gg		跳到第9行:w
+
+10.  ctrl+6	跳到上一个缓冲file
+
+11.  vim fname1 fname2 fname3		一次性编辑多个file
+
+12.  :split	水平分割
+
+13.  :vsplit	垂直分割
+
+14.  ctrl+w+arrow		go to the windows as the arrow say 
+
+15.  ctrl+w+w	change the windows
+
+16.  shift+^  go to the line head of this line 
+
+17.  cc		delete this line and goto the insert mode	!!!!
+
+18.  0		move to the line head of this line
+
+19.  '.		back to the last modify line's line head	!!!!
+
+20.  c$		delete to the line end and goto the insert mode
+
+21.  ab zh zhangshijie	when typein zh then change it to jameskid
+
+22.  4x		delete 4 char after the cursor
+
+23.  4X		delete 4 char before the cursor
+
+24.  ggyG		copy all 
+
+25.  |		split the command
+
+26.  Ex		open this directory 
+
+27.  q{register}  recored the macro
+q			end the recored
+
+28.  C	    delete to the end and goto insert mode	!!!!
+
+29.  X		backspace				!!!!
+
+30.  gf		goto the path's file	!!!
+
+31.  :s/zs/zsj/	replace the word "zs" to "zsj" once 
+
+32.  :s/zs/zsj/g   replace the word "zs" to "zsj" on this
+line 
+
+33.  n,$s/zs/zsj/g	replace the word "zs" to "zsj" from line n
+to line end
