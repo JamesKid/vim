@@ -70,3 +70,18 @@ line
 
 33.  n,$s/zs/zsj/g	replace the word "zs" to "zsj" from line n
 to line end
+
+# 操作
+	# 复制
+	# 移动
+
+# 查找
+	# 查找单个
+		/pattern
+	# 查找匹配的行
+		g/pattern/p
+# 替换
+
+# 删除
+	# 删除匹配的行
+		g/pattern/d
