@@ -59,6 +59,7 @@ endfunction
 			   " 2014_05_22_16_51 add plugin "splitjoin"
 			   " 2014_07_02_10_39 add map  "phputf8" as utf8 head
 			   " 2014_10_16_17_56 add button "f7" go to the last file and station 
+			   " 2014_11_10_11_06 add imap "shift + u" as "ctrl+u" "jj" as  "esc" 
 			   
 "====================================================================================================
 
@@ -210,6 +211,10 @@ endfunction
 				 map vc :e /usr/local/share/vim/vimrc <cr>
 
 		" command map 
+			noremap <S-u> <C-u>
+			noremap <S-d> <C-d>
+			imap <C-l> <Esc>
+			imap jj <Esc>
 			map vd :bd% <cr>
 			map vo :bp <cr> <cr>
 			map vp :bn <cr>
@@ -241,6 +246,8 @@ endfunction
 				nmap <M-5> 5gt
 				nmap <M-6> 6gt
 				nmap <M-7> 7gt
+			" unmap 
+
 
 			" treat long line as break lines 
 				"map j gj
@@ -497,7 +504,7 @@ endfunction
 				let g:winManagerWindowLayout = 'NERDTree,BufExplorer'
 		
 				"设置winmanager的宽度，默认为25
-				let g:winManagerWidth = 35
+				let g:winManagerWidth = 25
 				"定义打开关闭winmanager按键 这里定义为F11
 				" shortcut to open Nerdtree and taglist
 				nmap <silent> ;j :WMToggle<cr>
@@ -550,6 +557,7 @@ endfunction
 
 		" NERDTree
 				"let NERDTRee_Auto_Open=1
+				 let NERDChristmasTree=1   " let the nerdtree colorfull 
 		
 		" miniBufExpl
 				"let g:miniBufExplMapWindowNavVim = 1
@@ -588,7 +596,7 @@ endfunction
 			
 			let g:LookupFile_TagExpr = '"./filenametags"' 	" 设定filenametags
 			let g:LookupFile_MinPatLength = 2               "最少输入2个字符才开始查找
-			" let g:LookupFile_PreserveLastPattern = 0        "不保存上次查找的字符串
+			let g:LookupFile_PreserveLastPattern = 0        "不保存上次查找的字符串
 			let g:LookupFile_PreservePatternHistory = 1     "保存查找历史
 			let g:LookupFile_AlwaysAcceptFirst = 1          "回车打开第一个匹配项目
 			let g:LookupFile_AllowNewFiles = 0              "不允许创建不存在的文件
