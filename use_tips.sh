@@ -8,6 +8,9 @@
 #               2014_01_18_17_43 add exec linux command
 #==============================================================
 
+# jump(跳转)
+		# 跳到查找的词尾
+				fk
 # coding
 	:set fenc=utf8  #1.transfer the file to utf-8
 
