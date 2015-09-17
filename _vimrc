@@ -61,13 +61,34 @@ endfunction
 			   " 2014_10_16_17_56 add button "f7" go to the last file and station 
 			   " 2014_11_10_11_06 add imap "shift + u" as "ctrl+u" "jj" as  "esc" 
 			   " 2014_11_10_11_06 add add  select funciton as "vf"
+			   " 2015_9_17_18_06 add add  easy motion use 
 			   
 "====================================================================================================
 
 " setting
+		 " 对部分语言设置单独的缩进
+		 au FileType groovy,scala,clojure,scheme,racket,lisp,lua,ruby,eruby,slim,elixir,julia,dart,coffee,jade,sh set shiftwidth=2
+		 au FileType groovy,scala,clojure,scheme,racket,lisp,lua,ruby,eruby,slim,elixir,julia,dart,coffee,jade,sh set tabstop=2
+		
+		 " 根据后缀名指定文件类型
+		 au BufRead,BufNewFile *.h        setlocal ft=c
+		 au BufRead,BufNewFile *.m        setlocal ft=objc
+		 au BufRead,BufNewFile *.di       setlocal ft=d
+		 au BufRead,BufNewFile *.cl       setlocal ft=lisp
+		 au BufRead,BufNewFile *.phpt     setlocal ft=php
+		 au BufRead,BufNewFile *.inc      setlocal ft=php
+		 au BufRead,BufNewFile *.sql      setlocal ft=mysql
+		 au BufRead,BufNewFile *.tpl      setlocal ft=smarty
+		 au BufRead,BufNewFile *.txt      setlocal ft=txt
+		 au BufRead,BufNewFile hosts      setlocal ft=conf
+		 au BufRead,BufNewFile http*.conf setlocal ft=apache
+		 au BufRead,BufNewFile *.conf     setlocal ft=nginx
+		 au BufRead,BufNewFile *.ini      setlocal ft=dosini
+		 au BufRead,BufNewFile *.zj      setlocal ft=php
 
 		" noremal setting
 			set nu 
+			set mouse=a
 			set smartindent
 			set tabstop=4
 			set softtabstop=4
@@ -76,6 +97,8 @@ endfunction
 			set fileencoding=utf-8
 			set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1,gbk
 			set fenc=utf-8
+			set autoindent      " 自动缩进
+			set smartindent      " 智能自动缩进
 			" set helplang=cn    " let the help language to chinese
 			"colorscheme desert
 			colorscheme torte
@@ -85,6 +108,10 @@ endfunction
 				set novisualbell
 				set t_vb=
 				set tm=500
+			" not create tmp file 
+				set nobackup
+				set nowritebackup
+				set noswapfile
 		" status line
 		"			"set statusline=%{strftime('%H:%M')}\\ \\%F%*\\%y\\%2*%r%m%*\\%l,%c\\%=%l/%L\\(%p%%)%*
 	
@@ -101,7 +128,9 @@ endfunction
 			set guioptions-=m  "Remove menubar"
 			set guioptions-=T  "Remove toolbar"
 			set guioptions-=r  "Remove v_scroll bar" 
-			set ruler
+			set guioptions-=b  " remove under scroll bar 
+		    set cursorline   " 高亮当前行
+			set ruler  " 右下角显示光标位置的状态行
 			
 			"no auto huan_hang
 			"set nowrap
@@ -148,7 +177,6 @@ endfunction
 			"	endif  
 			"endfunction  
 			"autocmd VimEnter * :call s:ReadSession()  
-
 
 		" auto matching '(','{' and so on "
 			":inoremap ( ()<ESC>i
@@ -210,6 +238,7 @@ endfunction
 			" linux
 				 map vm :e /etc/hosts <cr>
 				 map vc :e /usr/local/share/vim/vimrc <cr>
+				 map ve :e ~/.emacs <cr>
 
 		" command map 
 			noremap <S-u> <C-u>
@@ -234,7 +263,10 @@ endfunction
             inoremap <F6> <C-R>=strftime("%F")<CR>
 			map ;s <c-w>h 
 			map ;f <c-w>l
-		  
+			" 全选
+				map vi ggvG$y
+				map ,a ci"
+				map ,s ci'
 			"tab map
 				map ;n :tabnew <cr>
 				map ;d :tabclose <cr>
@@ -412,6 +444,21 @@ endfunction
 						\" @description :<cr>
 						\" @change		:<cr>
 						\" ======================================================================
+				" html5head
+				"
+				ab  html5h 
+						\<!DOCTYPE html> <cr>
+						\<html><cr>
+						\<head><cr>
+						\<meta http-equiv="Content-Type" content="text/html; charset=uft-8"><cr>
+						\<title></title><cr>
+						\<meta name="Keywords" content=""><cr>
+						\<meta NAME="description" CONTENT=""><cr>
+						\<link href="xx.css" rel="stylesheet" type="text/css"><cr>
+						\<script language="JavaScript" src="xx.js"></script><cr>
+						\<body><cr>
+						\</body><cr>
+						\</html><cr>
 				" php 
 					" php utf-8 head
 						ab phputf8 header("Content-Type: text/html; charset=utf-8");
@@ -425,6 +472,9 @@ endfunction
 						" memory test
 							ab bmemory $beginMemory = memory_get_usage();
 							ab ememory echo "<br />";<cr>$endMemory = memory_get_usage();<cr>$useMemory = $endMemory - $beginMemory;<cr>echo $useMemory;
+					" php print die
+						    ab yip  print_r($result);die;
+						    ab yipd print_r($data);die;
 			
 " other
 		" weiBo  
@@ -519,7 +569,7 @@ endfunction
 
 		" ctags 	
 				"生成一个tags文件
-				nmap <f9> <esc>:!ctags -r *<cr>
+				nmap <f9> <esc>:!ctags -R *<cr>
 
 		" taglist	
 				" 这项必须设定，否则出错,配置taglist的ctags路径
@@ -576,8 +626,18 @@ endfunction
 			"let g:rainbow_operators = 2
 		" easy motion
 			" use tips 
-				" \\w    :find word
-				" \\f	 :find letter 
+				" \\w    :find word after
+				" \\W    :find word before
+				" \\e    :find word end after
+				" \\E    :find word end before 
+				" \\f	 :find letter after
+				" \\F	 :find letter before
+				nmap  fw <leader><leader>w
+				nmap  fW <leader><leader>W
+				nmap  fe <leader><leader>e
+				nmap  fE <leader><leader>E
+				nmap  ff <leader><leader>f
+				nmap  fF <leader><leader>F
 		" emmet
 			" git path 
 				" git clone https://github.com/mattn/emmet-vim.git
@@ -628,6 +688,21 @@ endfunction
 			" use tips 
 				map gS : split line 
 				" gJ   :  join line 
+		" airline设置
+		 set laststatus=2
+		" " 使用powerline打过补丁的字体
+		 let g:airline_powerline_fonts = 1
+		" " 开启tabline
+		 let g:airline#extensions#tabline#enabled = 1
+		" " tabline中当前buffer两端的分隔字符
+		 let g:airline#extensions#tabline#left_sep = ' '
+		" " tabline中未激活buffer两端的分隔字符
+		 let g:airline#extensions#tabline#left_alt_sep = '|'
+		" " tabline中buffer显示编号
+		 let g:airline#extensions#tabline#buffer_nr_show = 1
+		" " 映射切换buffer的键位
+		 nnoremap [b :bp<CR>
+		 nnoremap ]b :bn<CR>
 
 " file auto control 
 		" html
