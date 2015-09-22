@@ -62,6 +62,7 @@ endfunction
 			   " 2014_11_10_11_06 add imap "shift + u" as "ctrl+u" "jj" as  "esc" 
 			   " 2014_11_10_11_06 add add  select funciton as "vf"
 			   " 2015_9_17_18_06 add add  easy motion use 
+			   " 2015_9_24_18_06  change  easy motion key 
 			   
 "====================================================================================================
 
@@ -636,8 +637,8 @@ endfunction
 				nmap  fW <leader><leader>W
 				nmap  fe <leader><leader>e
 				nmap  fE <leader><leader>E
-				nmap  ff <leader><leader>f
-				nmap  fF <leader><leader>F
+				nmap  fi <leader><leader>f
+				nmap  fo <leader><leader>F
 		" emmet
 			" git path 
 				" git clone https://github.com/mattn/emmet-vim.git
