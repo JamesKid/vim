@@ -64,6 +64,7 @@ endfunction
 			   " 2015_9_17_18_06 add add  easy motion use 
 			   " 2015_9_24_18_06  change  easy motion key 
 			   " 2015_9_24_20_06  add " code map" ka as '(' ks as ')' kd as [ kf as ]  
+			   " 2015_9_24_21_06  add http://blog.jobbole.com/58978/   YouCompleteMe  autocomplete(自动补全插件)
 			   
 "====================================================================================================
 
@@ -667,13 +668,14 @@ endfunction
 		" look up file
 			
 			let g:LookupFile_TagExpr = '"./filenametags"' 	" 设定filenametags
+			let g:LookupFile_TagExpr ='"/usr/local/share/vim/filenametags113"' " tags的路径,可自定
 			let g:LookupFile_MinPatLength = 2               "最少输入2个字符才开始查找
 			let g:LookupFile_PreserveLastPattern = 0        "不保存上次查找的字符串
 			let g:LookupFile_PreservePatternHistory = 1     "保存查找历史
 			let g:LookupFile_AlwaysAcceptFirst = 1          "回车打开第一个匹配项目
 			let g:LookupFile_AllowNewFiles = 0              "不允许创建不存在的文件
-			if filereadable("./filenametags")                "设置tag文件的名字
-				let g:LookupFile_TagExpr = '"./filenametags"'
+			if filereadable("/usr/local/share/vim/filenametags113")                "设置tag文件的名字
+				let g:LookupFile_TagExpr = '"/usr/local/share/vim/filenametags113"'
 			endif
 			"映射LookupFile为,lk
 			nmap <silent> <leader>lk :LUTags<cr>
@@ -691,6 +693,11 @@ endfunction
 				"echo -e "!_TAG_FILE_SORTED\t2\t/2=foldcase/" > filenametags
 				"find . -not -regex '.*\.\(png\|gif\)' -type f -printf "%f\t%p\t1\n" | \
 				"sort -f >> filenametags 
+			" use 
+				" ctrl+n  : go to the next select 
+				" ctrl+p  : go to the pre select 
+				" enter   : go to file 
+				"
 
 		" splitjoin 
 			" use tips 
