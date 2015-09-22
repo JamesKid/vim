@@ -637,8 +637,8 @@ endfunction
 				nmap  fW <leader><leader>W
 				nmap  fe <leader><leader>e
 				nmap  fE <leader><leader>E
-				nmap  fi <leader><leader>f
-				nmap  fo <leader><leader>F
+				nmap  a <leader><leader>f
+				nmap  c <leader><leader>F
 		" emmet
 			" git path 
 				" git clone https://github.com/mattn/emmet-vim.git
