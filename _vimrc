@@ -63,6 +63,7 @@ endfunction
 			   " 2014_11_10_11_06 add add  select funciton as "vf"
 			   " 2015_9_17_18_06 add add  easy motion use 
 			   " 2015_9_24_18_06  change  easy motion key 
+			   " 2015_9_24_20_06  add " code map" ka as '(' ks as ')' kd as [ kf as ]  
 			   
 "====================================================================================================
 
@@ -241,6 +242,12 @@ endfunction
 				 map vc :e /usr/local/share/vim/vimrc <cr>
 				 map ve :e ~/.emacs <cr>
 
+		" code map (符号map)
+			imap ka (
+			imap ks )
+			imap kd [
+			imap kf ]
+			imap kr $
 		" command map 
 			noremap <S-u> <C-u>
 			noremap <S-d> <C-d>
@@ -638,7 +645,7 @@ endfunction
 				nmap  fe <leader><leader>e
 				nmap  fE <leader><leader>E
 				nmap  a <leader><leader>f
-				nmap  c <leader><leader>F
+				nmap  e <leader><leader>F
 		" emmet
 			" git path 
 				" git clone https://github.com/mattn/emmet-vim.git
