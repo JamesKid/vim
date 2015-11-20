@@ -9,6 +9,8 @@
 #               2015_11_16_17_00 add control(操作类) normal 按行执行
 #               2015_11_19_17_00 add 特殊字符,数字运算
 #               2015_11_19_18_00 add Ex命令格式
+#               2015_11_20_15_27 add 用shell命令对文本排序
+#               2015_11_20_17_27 add 文件打开相关
 #==============================================================
 
 # search(查找)
@@ -117,6 +119,7 @@
 						%   # 整个文件（:1,$ 的简写形式）
 				  # use 
 						@:    # 重复上一次的ex命令 *****
+						@@    # 重复@:
 						:1,15 normal .  # 1到15行执行.重复
 						:'<,'>normal .  # 对选中执行.重复
 						:6t.  # 把第6行复制到当前行下方
@@ -126,6 +129,61 @@
 						:'<,'>t0  # 把高亮选中的行复制到文件开头
 						:%normal i//  # 注释整个js文件 *****
 						:normal @q  # 应对复杂任务
+						:bn   # 切换到下一缓冲区
+						:bp   # 切换到上一缓冲区
+						:col<C-d> # 显示可用的补全列表
+						:<C-p>  # 调用上一个历史命令脱离up and down ******
+						:<C-n>  # 调用下一个历史命令脱离up and down ******
+						:<C-c>  # 返回普通模式 ******
+						q:      # 查看历史ex命令 按 <CR>会执行**** 
+										# 可在里面编辑，合并命令成 xxx | xxx
+						q/      # 打开查找命令历史的命令行窗口
+								# <C-p>和<C-n> 命令有个缺点，它们不会像<Up>和<Down>那样对历史命令进行过滤。 通过创建下面的自定义映射项，我们可以把二者的优点结合到一起：
+								# cnormap <C-p> <Up> 
+								# cnormap <C-n> <Down> 
+						:ls     # 查看缓冲区的文件
+						:bd     # 删除缓冲区文件
+						:5,10bd # 删除５－１０编号缓冲区
+						:args   # 查看vim *.txt 时打开的所有文件
+						:args{arglist}  # {arglist}包括文件名，通配符,甚至是一条shell命令输出结果
+						:args <tab>   #　切换打开当前目录下的文件,可跟通配符
+						:args index.html index2.html # 分别打开index1 index2
+						:args *.*  # 打开当前目录下的所有文件入缓冲区
+						:args **/*.js # 打开当前目录及所有子孙目录里的js文件
+						:args **/*.js **/*.css  # 打开当前目录及所有子孙目录里的js文件css文件
+						:args `shell command`  # 可以将shell的输出结果作为args参数
+						:n   # 切换到args的下一个文件
+						:f   # 切换到args的上一个文件
+						:wa  # 把所有改变的缓冲区写入磁盘
+				# 窗口分割
+						<C-w>s # 横向分割
+						<C-w>v # 纵向分割
+						<C-w>w  #在窗口间循环切换
+						<C-w>h  #切换到左边的窗口
+						<C-w>j  #切换到下边的窗口
+						<C-w>k  #切换到上边的窗口
+						<C-w>l  #切换到右边的窗口
+						<C-w>c    #关闭活动窗口
+						<C-w>o    #只保留活动窗口
+						<C-w>=  # 使所有窗口等宽、等高
+						<C-w>   # 最大化活动窗口的高度
+						<C-w>|  # 最大化活动窗口的宽度
+						[N]<C-w>_  #把活动窗口的高度设为[N ]行
+						[N]<C-w>|  #把活动窗口的宽度设为[N ]列
+						:clo    #关闭活动窗口
+						:on    #只保留活动窗口
+				# 标签
+						:tabo  #  只保留活动标签页，关闭所有其他标签页
+						{N}gt # 跳到指定编号的标签
+				# 打开及保存文件
+						:pwd  # 查看当前工作目录
+						:e <tab><tab> #编辑工作目录下的文件
+						gf    #　跳转到路径下的文件
+				# :find 查找文件(会在配置的path中查找)
+						# 配置 'path'选项
+								:set path+=app/**   # ** 会通配app/下所有子目录
+						# use 
+								:f xxx<tab>  # 打开匹配文件
  
 
 
@@ -158,13 +216,25 @@
 # use linux or cmd command(执行命令)
 	:!command
 	:!ls -l
-	:r !command		# get the content result ,and print it in the current file
+	:r !command		# (输出到当前文件)get the content result ,and print it in the current file
 	:62,72 !sort	# sort the 62 to 72
 	:24 w ! bash    # excute the code of line 19
 	:. w !bash      # use the current file as command 
 	:21 !bash		# it will excute line 21 and replace the lline 21
 	:shell			# go to shell command line 
+	:!/bin/zsh  # 进入zsh 命令行
 	ls -l
+	ctrl+z      # 挂起当前vim
+	jobs        #   # 查看当前的作业列表
+	fg				  # 唤醒作业
+	:2,50!sort -t ',' -k2 # 对第二列进行排序 ******
+										    # cbd, debd
+										    # cbd, aebd
+										    # cbd, cebd
+  !{motion}   # 对命令中的范围执行转入到命令模式
+	!G          # 等同于：.,$!
+	!3j         # 等同于:.,.+3! 
+
 
 # edit network file
 	:Nread scp://jameskid@192.168.72.129:33334//tmp/zsj.txt	 # read the zsj.txt
@@ -172,5 +242,6 @@
 
 # useful web 
 	http://www.troyliu.com/20131114001.html # java ide2 making 
+
 	
 
