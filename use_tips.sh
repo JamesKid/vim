@@ -1,4 +1,4 @@
-#==============================================================
+#==========================================================================
 #!/bin/bash 
 # Description:  this is some vim use tips here 
 # Editor:       JamesKid 
@@ -11,8 +11,15 @@
 #               2015_11_19_18_00 add Ex命令格式
 #               2015_11_20_15_27 add 用shell命令对文本排序
 #               2015_11_20_17_27 add 文件打开相关
-#==============================================================
+#               2015_11_23_15_17 add learn vimscript the hard way  web
+#==========================================================================
 
+# best web( learn vimscript the hard way )
+		# github 
+				https://github.com/sjl/learnvimscriptthehardway/
+		# web 
+				http://learnvimscriptthehardway.onefloweroneworld.com/  # 中文教程地址
+				http://learnvimscriptthehardway.stevelosh.com/  # 英文教程地址
 # search(查找)
 		*    # 查找当前光标下的单词
 		/    # 正向查找
