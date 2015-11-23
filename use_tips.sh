@@ -12,6 +12,7 @@
 #               2015_11_20_15_27 add 用shell命令对文本排序
 #               2015_11_20_17_27 add 文件打开相关
 #               2015_11_23_15_17 add learn vimscript the hard way  web
+#               2015_11_23_15_17 add vim debug tool
 #==========================================================================
 
 # best web( learn vimscript the hard way )
@@ -20,6 +21,8 @@
 		# web 
 				http://learnvimscriptthehardway.onefloweroneworld.com/  # 中文教程地址
 				http://learnvimscriptthehardway.stevelosh.com/  # 英文教程地址
+# debug 
+		 http://inlehmansterms.net/2014/10/31/debugging-vim/
 # search(查找)
 		*    # 查找当前光标下的单词
 		/    # 正向查找
