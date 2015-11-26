@@ -6,6 +6,8 @@
 # Version:      1.0 
 # History:      2015-11-24_9_30 creat vimscript 
 #               2015_11_24_9_50 add debug web  and debug use
+#               2015_11_26_9_50 add vimscript note
+# book history  http://learnvimscriptthehardway.stevelosh.com/chapters/06.html
 #==========================================================================
 
 # best web( learn vimscript the hard way )
@@ -15,7 +17,26 @@
 				http://learnvimscriptthehardway.onefloweroneworld.com/  # 中文教程地址
 				http://learnvimscriptthehardway.stevelosh.com/  # 英文教程地址
 # vimscript 
-		# function
+		# basic
+				:echo "Hello,world!"  # 在vim命令行输出hello,world
+				:echom "Hello,world!"  # persistent echoing (持久输出)
+				:messages   # see difference betyween these two commands
+				#	to view it later function
+				:set numberwidth=4    # set the numberwidth as 4 size 
+				:set numberwidth?     # show the numberwidth 
+				:help command # show the command help 
+				
+		# tips
+				1. please use echom better than echo ,echom can let you run :messages 
+				2. dont use comment after map (别在map后加注释)
+				3. ignore mapping 
+						:nmap x dd  
+						:nnoremap \ x  # 当按下\ 时，取消x 的nmap
+						vnoremap
+						inoremap
+						:help unmap # show map help
+
+
 
 # debug 
 		# learn  
