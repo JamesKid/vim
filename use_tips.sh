@@ -28,6 +28,8 @@
 		*    # 查找当前光标下的单词
 		/    # 正向查找
 		?    # 反向查找
+		\c   # 忽略大小写  如 /test\c
+		\C   # 强制大小写  如 /test\C
 # count(运算)	
 		<C-a>  # 对数据执行加操作 如果光标不在数字上会正向跳到所找到的第一个数字上
 		<C-x>  # 对数据执行减操作
@@ -189,6 +191,7 @@
 						:let i=0 | 1,30g/1/s//\=i/ | let i=i+2 # 每行执行加2操作 *******
 						:let i=0  # 给变量赋值 |　分割语句 *******
 						/s//\=i/  # 替换为i的函数式 *******
+						I<C-r>=i<cr><esc>  # 插入变量i的值
 						# 相关强大的替换介绍网站
 						# http://www.cnblogs.com/simonshi/archive/2012/02/13/2350091.html
 				# 窗口分割
@@ -240,37 +243,44 @@
 				3@a  # 串行遇到问题时后面的行不执行
 		# 并行使用
 				:30,50 NORMAL @A # 并行遇到问题继续执行
+
+		# 编辑宏
+		# 对一组文件使用宏
 				
 # coding(编码)
-	:set fenc=utf8  #1.transfer the file to utf-8
-	:set fileencoding		# check the files encoding
-	:set fileencoding=utf-8 # set the files encoding to utf-8
+		:set fenc=utf8  #1.transfer the file to utf-8
+		:set fileencoding		# check the files encoding
+		:set fileencoding=utf-8 # set the files encoding to utf-8
 
 # regular expression(正则表达式)
-	:%s/href="[^"]\+=[^{css}]"/href="#"/g    # replace the href except xxxx.css"
-	
+		:%s/href="[^"]\+=[^{css}]"/href="#"/g    # replace the href except xxxx.css"
+		/#\([0-9a-fA-F]\{6}\|[0-9a-fA-F]\{3}\)  # 匹配css颜色 #ff0000
+		/\v#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})     # 同上 加\v 参数不用转义
+		\x     # 代表完整字符集[0-9a-fA-F]
+		/\v#(\x{6}|\x{3})   # 匹配css颜色
+
 
 # use linux or cmd command(执行命令)
-	:!command
-	:!ls -l
-	:r !command		# (输出到当前文件)get the content result ,and print it in the current file
-	:62,72 !sort	# sort the 62 to 72
-	:24 w ! bash    # excute the code of line 19
-	:. w !bash      # use the current file as command 
-	:21 !bash		# it will excute line 21 and replace the lline 21
-	:shell			# go to shell command line 
-	:!/bin/zsh  # 进入zsh 命令行
-	ls -l
-	ctrl+z      # 挂起当前vim
-	jobs        #   # 查看当前的作业列表
-	fg				  # 唤醒作业
-	:2,50!sort -t ',' -k2 # 对第二列进行排序 ******
-										    # cbd, debd
-										    # cbd, aebd
-										    # cbd, cebd
-  !{motion}   # 对命令中的范围执行转入到命令模式
-	!G          # 等同于：.,$!
-	!3j         # 等同于:.,.+3! 
+		:!command
+		:!ls -l
+		:r !command		# (输出到当前文件)get the content result ,and print it in the current file
+		:62,72 !sort	# sort the 62 to 72
+		:24 w ! bash    # excute the code of line 19
+		:. w !bash      # use the current file as command 
+		:21 !bash		# it will excute line 21 and replace the lline 21
+		:shell			# go to shell command line 
+		:!/bin/zsh  # 进入zsh 命令行
+		ls -l
+		ctrl+z      # 挂起当前vim
+		jobs        #   # 查看当前的作业列表
+		fg				  # 唤醒作业
+		:2,50!sort -t ',' -k2 # 对第二列进行排序 ******
+													# cbd, debd
+													# cbd, aebd
+													# cbd, cebd
+		!{motion}   # 对命令中的范围执行转入到命令模式
+		!G          # 等同于：.,$!
+		!3j         # 等同于:.,.+3! 
 
 
 # edit network file
@@ -295,4 +305,8 @@
 				
 
 	
+
+
+
+
 
