@@ -30,6 +30,50 @@
 		?    # 反向查找
 		\c   # 忽略大小写  如 /test\c
 		\C   # 强制大小写  如 /test\C
+		set nohlsearch # 禁用高亮
+		/search<esc>  # 返回原光标处 ***
+		:%s/search//gn # 统计匹配个数
+		/search/e      # 查找焦点定位到词尾
+
+# substitute (替换)replace
+		# (flag)标志位
+				g  # 修改一行内的所有匹配,而不仅仅是第一处匹配 
+				c  # 确认是否拒绝每一处修改
+				n  # 抵制正常的替换行为
+		# 符号
+				\r  # 插入一个换行符
+				\t  # 插入一个制表符
+				\\  # 插入一个反斜杠
+				\1  # 插入第1个子匹配
+				\2  # 插入第2个子匹配（以此类推，最多到\9）
+				\0  # 插入匹配模式的所有内容
+				&   # 插入匹配模式的所有内容
+				~   # 使用上一次调用:substitute时的{string}
+				\={Vim script} # 执行{Vim Script}表达式；并将返回的结果作为替换{string}
+		# c 替换提示
+				y  # 替换此处匹配
+				n  # 忽略此处匹配
+				q  # 退出替换过程
+				l  # “last”—— 替换此处匹配后退出
+				a  # “all”—— 替换此处与之后所有的匹配
+				<C-e>  # 向上滚动屏幕
+				<C-y>  # 向下滚动屏幕
+		# 用寄存器里的内容替换
+				:%s//<C-r>0/g 
+		# 交换字段顺序
+				# last name,first name,email 
+				# neil,drew,drew@vimcasts.org 
+				# doe,john,john@example.com 
+				/\v^([^,]*),([^,]*),([^,]*)$ 
+				:%s//\3,\2,\1 
+		# Abolish.vim  超级substitute命令
+				# 方便交换功能
+						:%S/{man,dog}/{dog,man}/g
+		# 删除所有匹配行
+				:g/re/d  # 删除匹配行
+				:v/re/d  # 只保留匹配行
+
+ 
 # count(运算)	
 		<C-a>  # 对数据执行加操作 如果光标不在数字上会正向跳到所找到的第一个数字上
 		<C-x>  # 对数据执行减操作
@@ -258,6 +302,21 @@
 		/\v#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})     # 同上 加\v 参数不用转义
 		\x     # 代表完整字符集[0-9a-fA-F]
 		/\v#(\x{6}|\x{3})   # 匹配css颜色
+		/\Va.k.a<cr>       # 打开原义开关,只匹配a.k.a
+		# 子匹配
+		/\v<(\w+)\_s+\1>  # 匹配重复单词 abc abc abc
+		\_s    # 匹配空字符和换行符
+		/\v<the>   # 单个单词完整匹配
+		\zs    # 匹配前缀元 start
+		\ze    # 匹配后缀元 end
+		/Pracical \zsVim  # 查找前面为Pratical的Vim
+		/\v"[^"]+"<CR>    # " # 匹配双引号含引号
+		/\v"\zs[^"]+\ze"<CR>    # " # 匹配双引号不含引号
+		/\Vhttp://www.baidu.com
+		?www.baidu.com   # 反向不转义
+		[^']   "# 排除单引号
+		/\v'[^']+'   #匹配单引号
+		/\v'([^']|'\w)+' # 排除类似 don't
 
 
 # use linux or cmd command(执行命令)
