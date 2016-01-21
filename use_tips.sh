@@ -14,6 +14,7 @@
 #               2015_11_23_15_17 add learn vimscript the hard way  web
 #               2015_11_23_15_17 add vim debug tool
 #               2015_12_21_15_17 add vim move
+#               2016_1_21_15_17  add 'q:' 浏览命令历史 'q/' 浏览搜索历史 ******
 #==========================================================================
 
 # best web( learn vimscript the hard way )
@@ -24,6 +25,11 @@
 				http://learnvimscriptthehardway.stevelosh.com/  # 英文教程地址
 # debug 
 		 http://inlehmansterms.net/2014/10/31/debugging-vim/
+
+# history (历史查找)
+		q:   # 查找命令行输入历史 ******
+		q/   # 查找/查找历史      ******
+		
 # search(查找)
 		*    # 查找当前光标下的单词
 		/    # 正向查找
@@ -212,9 +218,9 @@
 						:<C-p>  # 调用上一个历史命令脱离up and down ******
 						:<C-n>  # 调用下一个历史命令脱离up and down ******
 						:<C-c>  # 返回普通模式 ******
-						q:      # 查看历史ex命令 按 <CR>会执行**** 
+						q:      # 查看历史ex命令 按 <CR>会执行******
 										# 可在里面编辑，合并命令成 xxx | xxx
-						q/      # 打开查找命令历史的命令行窗口
+						q/      # 打开查找命令历史的命令行窗口 ******
 								# <C-p>和<C-n> 命令有个缺点，它们不会像<Up>和<Down>那样对历史命令进行过滤。 通过创建下面的自定义映射项，我们可以把二者的优点结合到一起：
 								# cnormap <C-p> <Up> 
 								# cnormap <C-n> <Down> 
