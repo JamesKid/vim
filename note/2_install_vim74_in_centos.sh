@@ -39,6 +39,12 @@
 	# install
 		cd vim74/src
 		./configure --enable-multibyte --with-features=huge --disable-selinux
+		# 如需要python支持用以下configure
+			yum install python-devel
+			./configure  --enable-pythoninterp=yes --with-python-config-dir=/usr/lib64/python2.6/config
+			vim --version | grep python #  查看是否支持python
+
+
 		make 
 		make install
 		# if you use centos 6.4 this is the end 
