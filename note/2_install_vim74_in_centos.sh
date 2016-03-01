@@ -39,8 +39,10 @@
 	# install
 		cd vim74/src
 		./configure --enable-multibyte --with-features=huge --disable-selinux
-		# 如需要python支持用以下configure
+		# 如需要python支持用以下configure(支持youCompleteMe ,有道词典插件)
 			yum install python-devel
+			yum install python-pip
+			sudo pip install requests
 			./configure  --enable-pythoninterp=yes --with-python-config-dir=/usr/lib64/python2.6/config
 			vim --version | grep python #  查看是否支持python
 
