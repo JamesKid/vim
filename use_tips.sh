@@ -296,6 +296,16 @@
 
 		# 编辑宏
 		# 对一组文件使用宏
+
+
+# autoload(自动加载)
+    # example
+        autocmd Bufread * :VimkidGetTips   # 读取Bufread时执行VimkidGetTips方法
+        autocmd FileType php nnoremap <leader>c I//<esc>     # 添加单行注释
+
+    # type
+        Bufread  # 读取文件时
+
 				
 # coding(编码)
 		:set fenc=utf8  #1.transfer the file to utf-8
@@ -360,16 +370,117 @@
 				#use 
 						cs"'     # 将光标下的双引号替换成单引号如 "hello world"
 						cs"<q>   # 将双引号替换为<q></q>标签
-						ds"      # 删除引号
+						ds"      # 删除引号"
 						ysiw]    # 添加中括号
 						ysiw<pm> # 添加p标签
 
 						
+# vimscript
+    # functions
+        # execute
+            :execute "write"   # 执行write 命令
+            :execute "normal! gg"  # normal模式下执行gg 命令
+        # normal
+            :normal! G  # Vim将移动光标到文件底部，即使G已经被映射了。****
+            # 在写Vim脚本时，你应该总是使用normal!，永不使用normal。不要信任用户在~/.vimrc中的映射。
+            
 
-						
-				
+    # if 语句
+        :if 1
+        :    echom "ONE"
+        :endik
 
-	
+    # elseif
+        :if 0
+        :    echom "if"
+        :elseif "nope!"
+        :    echom "elseif"
+        :else
+        :    echom "finally!"
+        :endif
+
+    # compare(比较)
+        >    # 大于
+        <    # 小于
+        ==   # 等于,是否大小写敏感根据set不同
+        ==?  # 无论你怎么设都大小写不敏感
+        ==#  # 无论你怎么设都大小写敏感
+
+    # function(方法)
+        # tips
+            1.方法要大写开头
+
+            2. 注意作用域
+                :function DisplayName(name)
+                :  echom "Hello!  My name is:"
+                :  echom a:name
+                :endfunction
+                :call DisplayName("Your Name")
+            3. 不定数量的参数
+                :function Varg(...)
+                :  echom a:0
+                :  echom a:1
+                :  echo a:000
+                :endfunction
+                :call Varg("a", "b")
+            4. 变量重新赋值
+                :function AssignGood(foo)
+                :  let foo_tmp = a:foo
+                :  let foo_tmp = "Yep"
+                :  echom foo_tmp
+                :endfunction
+                :call AssignGood("test")
+            
+        # use 
+            :call Meow()      # 执行方法,不显示返回值
+            :echom GetMeow()  # 调用GetMeow并把返回值传递给echom。
+    # 字符串 
+        # 连接
+            :echom "Hello, " . "world"
+        # 避免特殊符号被转义
+            :echom '\n\\'   # 用echom 且加单引号
+
+    # 字符串函数
+        :echom strlen("foo")  # 获取字符串长度返回3 
+        :echom len("foo")     # 获取字符串长度返回3 
+        :echo split("one two three") # 显示['one','two','three']注意是echo而不是echom
+        :echo split("one,two,three", ",")  # 同上
+        :echo join(["foo", "bar"], "...")  # 显示foo...bar
+        :echo join(split("foo bar"), ";")  # foo;bar
+        :echom tolower("Foo")    # 显示foo
+        :echom toupper("Foo")    # 显示FOO
+
+
+    # 作用域
+        # description
+            在VimScript中默认的作用域是全局作用域，也就是说你在一个脚本文件中定义了一个变量，在其他脚本中也可以读取和修改这个变量。在任何编程语言中，全局变量的滥用都会造成混乱，所以VimScript提供了更多的非全局作用域。
+
+        # detail
+            s:name 脚本文件作用域，此时s:name这个变量只在当前脚本文件中有效，其他的脚本文件中如果也定义了同名的s:name也没关系，因为这两者彼此独立。这一点与C中的static关键字类似。
+            b:name 缓冲区作用域，b:name只在指定的缓冲区中有效
+            w:name 窗口作用域，w:name只在指定的窗口中有效
+            g:name 全局作用域，函数外定义的变量的默认值
+            v:name vim预定义的变量，注意预定义变量不同于vim的选项(option)变量。
+            l:name 函数内部的局部变量，函数内部定义的变量的默认值
+
+    # var(变量)
+        # 环境变量  
+            echo $HOME  
+            echo $VIM  
+            echo $VIMRUNTIME  
+            echo $notexist  
+            echo type($HOME)  
+            echo type($notexist)  
+                
+        # 普通变量
+            :let @a = "hello!"  # 将hello存到寄存器@a中
+            :echo @a  # 输出@a寄存器内容
+        
+
+                
+            
+
+      
 
 
 
