@@ -380,6 +380,7 @@
         # execute
             :execute "write"   # 执行write 命令
             :execute "normal! gg"  # normal模式下执行gg 命令
+            :execute "normal! gg/er\<cr>"  # 查找er
         # normal
             :normal! G  # Vim将移动光标到文件底部，即使G已经被映射了。****
             # 在写Vim脚本时，你应该总是使用normal!，永不使用normal。不要信任用户在~/.vimrc中的映射。
