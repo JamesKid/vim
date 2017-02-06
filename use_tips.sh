@@ -15,7 +15,16 @@
 #               2015_11_23_15_17 add vim debug tool
 #               2015_12_21_15_17 add vim move
 #               2016_1_21_15_17  add 'q:' 浏览命令历史 'q/' 浏览搜索历史 ******
+#               2017_2_6_18_17   add vim8 安装
 #==========================================================================
+
+# install 
+    # vim8 (centos)
+        wget https://github.com/vim/vim/archive/master.zip
+        unzip master.zip
+        cd vim-master/src
+        ./configure
+        make && make install
 
 # best web( learn vimscript the hard way )
 		# github 
@@ -384,7 +393,16 @@
         # normal
             :normal! G  # Vim将移动光标到文件底部，即使G已经被映射了。****
             # 在写Vim脚本时，你应该总是使用normal!，永不使用normal。不要信任用户在~/.vimrc中的映射。
+        # add  (添加数组元素)
+            :let foo = ['a']
+            :call add(foo, 'b')
+            :echo foo  # 输出['a','b']
+        # len  (显示数组元素个数或字符串长度)
+        # reverse (反转数组元素)
             
+            
+            
+
 
     # if 语句
         :if 1
@@ -399,6 +417,22 @@
         :else
         :    echom "finally!"
         :endif
+
+    # for循环
+        :let c = 0
+        :for i in [1, 2, 3, 4]
+        :  let c += i
+        :endfor
+        :echom c
+
+    # while循环
+        :let c = 1
+        :let total = 0
+        :while c <= 4
+        :  let total += c
+        :  let c += 1
+        :endwhile
+        :echom total
 
     # compare(比较)
         >    # 大于
