@@ -14,41 +14,41 @@
 		cp vimrc /etc/vimrc
 		
 # method 2 (slow)
-	# install vimin centos
-		yum install vim
-		#or
-		yum -y install vim-enhanced
+    # install vimin centos
+      yum install vim
+      #or
+      yum -y install vim-enhanced
 
-	# remove some part
-		su - root
-		yum remove vim vim-enhanced vim-common vim-minimal 
-	# get file and unzip
-		wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2  
-		wget ftp://ftp.vim.org/pub/vim/extra/vim-7.2-extra.tar.gz//网上的那个链接不能用  
-		wget ftp://ftp.vim.org/pub/vim/extra/vim-7.2-lang.tar.gz
+    # remove some part
+      su - root
+      yum remove vim vim-enhanced vim-common vim-minimal 
+    # get file and unzip
+      wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2  
+      wget ftp://ftp.vim.org/pub/vim/extra/vim-7.2-extra.tar.gz//网上的那个链接不能用  
+      wget ftp://ftp.vim.org/pub/vim/extra/vim-7.2-lang.tar.gz
 
-		tar jxvf vim-7.4.tar.bz2  
-		tar zxvf vim-7.2-extra.tar.gz  
-		tar zxvf vim-7.2-lang.tar.gz  
-			
-		mv vim72 vim74
-		yum install ncurses-devel
-		yum install ncurses-dev
-		yum install libncurses5-dev
+      tar jxvf vim-7.4.tar.bz2  
+      tar zxvf vim-7.2-extra.tar.gz  
+      tar zxvf vim-7.2-lang.tar.gz  
+        
+      mv vim72 vim74
+      yum install ncurses-devel
+      yum install ncurses-dev
+      yum install libncurses5-dev
 
-	# install
+# install
 		cd vim74/src
 		./configure --enable-multibyte --with-features=huge --disable-selinux
 		# 如需要python支持用以下configure(支持youCompleteMe ,有道词典插件)
-			yum install python-devel
-			yum install python-pip
-			sudo pip install requests
-			./configure  --enable-pythoninterp=yes --with-python-config-dir=/usr/lib64/python2.6/config
-			vim --version | grep python #  查看是否支持python
+		    yum install python-devel
+			  yum install python-pip
+		    sudo pip install requests
+			  #./configure  --enable-pythoninterp=yes --with-python-config-dir=/usr/lib64/python2.6/config
+			  ./configure  --enable-pythoninterp=yes --with-python-config-dir=/usr/lib/python2.6/config
+			  vim --version | grep python #  查看是否支持python
+        make 
+        make install
 
-
-		make 
-		make install
 		# if you use centos 6.4 this is the end 
 		# if you use centos 5.9 you need to alias vim 74 like this 
 			alias vim='/usr/local/bin/vim'
