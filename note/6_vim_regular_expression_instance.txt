@@ -58,4 +58,5 @@
 										   "Introduction 
 										   New functions"
 	18. :g/moving$/				" search line with moving as end 
+    19. %s/\/\/.*//g            " 删除所有//注释
 										   
