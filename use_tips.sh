@@ -374,6 +374,7 @@
     ggvGJ       # 合并所有行
     %s/\/\/.*//g # 替换所有// 注释为空
     :%s!\s*/\*\_.\{-}\*/\s*! !g   # 替换所有 /* */ 注释为空
+    http://tool.oschina.net/jscompress # js 在线压缩good! 基于yui comporesseor
 
 
 # edit network file
