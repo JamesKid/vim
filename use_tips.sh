@@ -21,11 +21,15 @@
 
 # install 
     # vim8 (centos)
-        wget https://github.com/vim/vim/archive/master.zip
-        unzip master.zip
-        cd vim-master/src
-        ./configure
-        make && make install
+        # depends
+            yum install -y ncurses-devel
+            yum install -y unzip
+        # install
+          wget https://github.com/vim/vim/archive/master.zip
+          unzip master.zip
+          cd vim-master/src
+          ./configure
+          make && make install
 
 # best web( learn vimscript the hard way )
 		# github 
